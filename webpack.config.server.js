@@ -31,6 +31,11 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
+        loader: 'webpack-strip-block'
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
           presets: [
