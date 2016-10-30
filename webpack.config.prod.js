@@ -35,6 +35,13 @@ module.exports = {
   },
 
   module: {
+    preLoaders: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'webpack-strip-block'
+      },
+    ],
     loaders: [
       {
         test: /\.css$/,

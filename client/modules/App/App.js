@@ -6,9 +6,12 @@ import styles from './App.css';
 
 // Import Components
 import Helmet from 'react-helmet';
-import DevTools from './components/DevTools';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+
+/* develblock:start */
+import DevTools from './components/DevTools';
+/* develblock:end */
 
 // Import Actions
 import { toggleAddPost } from './AppActions';
@@ -31,7 +34,9 @@ export class App extends Component {
   render() {
     return (
       <div>
-        {this.state.isMounted && !window.devToolsExtension && process.env.NODE_ENV === 'development' && <DevTools />}
+        /* develblock:start */
+        {this.state.isMounted && !window.devToolsExtension && <DevTools />}
+        /* develblock:end */
         <div>
           <Helmet
             title="MERN Starter - Blog App"

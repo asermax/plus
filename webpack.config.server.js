@@ -27,12 +27,14 @@ module.exports = {
   },
 
   module: {
-    loaders: [
+    preLoaders: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'webpack-strip-block'
       },
+    ],
+    loaders: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
