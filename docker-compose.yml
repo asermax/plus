@@ -1,16 +1,16 @@
 web:
-  build: .
+  image: asermax/plus
   links:
-   - db
+    - db
   ports:
-   - "80:8000"
+    - "80:8000"
   volumes:
-   - .:/usr/src/app/
+    - plus_dependencies:/opt/app/node_modules
   environment:
-   NODE_ENV: production
-   MONGO_URL: mongodb://db:27017/mern-starter
+    NODE_ENV: production
+    MONGO_URL: mongodb://db:27017/mern-starter
 db:
   image: mongo:latest
   ports:
-   - "27017:27017"
+    - "27017:27017"
 

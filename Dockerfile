@@ -1,15 +1,14 @@
-FROM kkarczmarczyk/node-yarn
+FROM asermax/node-yarn
 MAINTAINER agustin carrasco <asermax@gmail.com>
 
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+COPY dist /opt/app/dist
+COPY package.json yarn.lock index.js /opt/app/
+VOLUME /opt/apt/node_modules
 
-COPY package.json /usr/src/app
-RUN yarn install
-COPY . /usr/src/app
-
+WORKDIR /opt/app
 ENV NODE_ENV production
-
 EXPOSE 8000
-CMD ["yarn", "run", "bs"]
+
+ENTRYPOINT ["yarn"]
+CMD ["run", "start:prod"]
 

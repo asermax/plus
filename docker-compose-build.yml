@@ -1,0 +1,9 @@
+build:
+  image: asermax/node-yarn
+  ports:
+    - "8000:8000"
+  volumes:
+    - .:/opt/app
+    - plus_dependencies:/opt/app/node_modules
+  working_dir: /opt/app
+  command: yarn run bs
