@@ -27,6 +27,17 @@ export class App extends Component {
     this.setState({isMounted: true}); // eslint-disable-line
   }
 
+  devTools() {
+    let devTools = '';
+
+    /* develblock:start */
+    devTools = (this.state.isMounted && !window.devToolsExtension && 
+      <DevTools />);
+    /* develblock:end */
+
+    return devTools;
+  }
+
   toggleAddPostSection = () => {
     this.props.dispatch(toggleAddPost());
   };
@@ -34,9 +45,7 @@ export class App extends Component {
   render() {
     return (
       <div>
-        /* develblock:start */
-        {this.state.isMounted && !window.devToolsExtension && <DevTools />}
-        /* develblock:end */
+        {this.devTools()}
         <div>
           <Helmet
             title="MERN Starter - Blog App"
